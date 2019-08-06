@@ -1,4 +1,15 @@
-# cz-conventional-changelog
+# cz-conventional-changelog-jira
+
+This is a fork of cz-conventional-changelog which adds support for prompting for a JIRA ticket
+and prepending it to the commit. The final format looks like:
+
+```
+[TICKET] TYPE(SCOPE): SUBJECT
+<blank line>
+BODY
+<blank line>
+FOOTER
+```
 
 Status:
 [![npm version](https://img.shields.io/npm/v/cz-conventional-changelog.svg?style=flat-square)](https://www.npmjs.org/package/cz-conventional-changelog)
