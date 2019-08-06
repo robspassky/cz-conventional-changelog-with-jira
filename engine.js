@@ -14,7 +14,7 @@ var filter = function(array) {
 
 var headerLength = function(answers) {
   return (
-    answers.type.length + 2 + (answers.scope ? answers.scope.length + 2 : 0)
+    answers.ticket.length + 3 + answers.type.length + 2 + (answers.scope ? answers.scope.length + 2 : 0)
   );
 };
 
@@ -69,6 +69,18 @@ module.exports = function(options) {
       // You can also opt to use another input
       // collection library if you prefer.
       cz.prompt([
+        {
+          type: 'input',
+          name: 'ticket',
+          message: 'Enter the relevant JIRA ticket (e.g. MX-1234):',
+          default: 'MX-1234',
+          validate: function(ticket) {
+            return /^[A-Z]+-[0-9]+$/.test(ticket);
+          },
+          transformer: function(ticket) {
+            return ticket.toUpperCase();
+          }              
+        },
         {
           type: 'list',
           name: 'type',
@@ -194,12 +206,14 @@ module.exports = function(options) {
           indent: '',
           width: options.maxLineWidth
         };
+        
+        var ticket = '[' + answers.ticket + ']';
 
         // parentheses are only needed when a scope is present
         var scope = answers.scope ? '(' + answers.scope + ')' : '';
 
         // Hard limit this line in the validate
-        var head = answers.type + scope + ': ' + answers.subject;
+        var head = ticket + ' ' + answers.type + scope + ': ' + answers.subject;
 
         // Wrap these lines at options.maxLineWidth characters
         var body = answers.body ? wrap(answers.body, wrapOptions) : false;
