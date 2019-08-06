@@ -76,8 +76,8 @@ module.exports = function(options) {
         {
           type: 'input',
           name: 'ticket',
-          message: 'Enter the relevant JIRA ticket (e.g. MX-1234):',
-          default: 'MX-1234',
+          message: 'Enter the relevant JIRA ticket (e.g. ABC-1234):',
+          default: 'ABC-1234',
           validate: function(ticket) {
             return /^[A-Z]+-[0-9]+$/.test(ticket);
           },
