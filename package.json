@@ -30,6 +30,7 @@
     "word-wrap": "^1.0.3"
   },
   "devDependencies": {
+    "@commitlint/load": "^7.5.0",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
@@ -37,12 +38,10 @@
     "mocha": "^6.2.0",
     "mock-require": "^3.0.3",
     "prettier": "^1.15.3",
-    "semantic-release": "^15.13.3",
+    "semantic-release": "^15.13.20",
     "semver": "^6.2.0"
   },
-  "optionalDependencies": {
-    "@commitlint/load": ">6.1.1"
-  },
+  "optionalDependencies": {},
   "config": {
     "commitizen": {
       "path": "./index.js"

@@ -14,7 +14,11 @@ var filter = function(array) {
 
 var headerLength = function(answers) {
   return (
-    answers.ticket.length + 3 + answers.type.length + 2 + (answers.scope ? answers.scope.length + 2 : 0)
+    answers.ticket.length +
+    3 +
+    answers.type.length +
+    2 +
+    (answers.scope ? answers.scope.length + 2 : 0)
   );
 };
 
@@ -79,7 +83,7 @@ module.exports = function(options) {
           },
           transformer: function(ticket) {
             return ticket.toUpperCase();
-          }              
+          }
         },
         {
           type: 'list',
@@ -206,7 +210,7 @@ module.exports = function(options) {
           indent: '',
           width: options.maxLineWidth
         };
-        
+
         var ticket = '[' + answers.ticket + ']';
 
         // parentheses are only needed when a scope is present
