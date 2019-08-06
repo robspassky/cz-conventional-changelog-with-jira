@@ -92,7 +92,7 @@ module.exports = function(options) {
           type: 'input',
           name: 'scope',
           message:
-            'What is the scope of this change (e.g. component or file name): (press enter to skip)',
+            'What is the scope of this change (e.g. feature, component, filename, etc): (press enter to skip)',
           default: options.defaultScope,
           filter: function(value) {
             return value.trim().toLowerCase();
